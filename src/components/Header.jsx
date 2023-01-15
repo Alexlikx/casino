@@ -5,6 +5,9 @@ import logo from "../../public/logo.svg";
 import styles from "../../styles/Header.module.scss";
 import cancelIcon from "../../public/cancel-icon.svg";
 import iconBurger1 from "../../public/icon-for-burger-1.svg";
+import purse from "../../public/purse.svg";
+import chest from "../../public/chest.svg";
+import person from "../../public/person.svg";
 
 const Header = () => {
   function CloseMenu() {
@@ -73,7 +76,7 @@ const Header = () => {
                       className={`${styles.header__link__burger}`}
                       onClick={CloseMenu}
                     >
-                      <Image src={iconBurger1} alt="" width={20} height={20} />
+                      <Image src={purse} alt="" width={20} height={20} />
                       Пополнение
                     </Link>
                   </li>
@@ -83,7 +86,7 @@ const Header = () => {
                       className={`${styles.header__link__burger}`}
                       onClick={CloseMenu}
                     >
-                      <Image src={iconBurger1} alt="" width={20} height={20} />
+                      <Image src={chest} alt="" width={20} height={20} />
                       Бонусы
                     </Link>
                   </li>
@@ -93,7 +96,7 @@ const Header = () => {
                       className={`${styles.header__link__burger}`}
                       onClick={CloseMenu}
                     >
-                      <Image src={iconBurger1} alt="" width={20} height={20} />
+                      <Image src={person} alt="" width={20} height={20} />
                       Личный кабинет
                     </Link>
                   </li>
