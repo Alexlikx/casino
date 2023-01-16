@@ -100,12 +100,14 @@ const Header = () => {
                       Личный кабинет
                     </Link>
                   </li>
-                  <p className={styles.copyrighting}>@Copyrighting Golden Slots 2016-2023</p>
+                  <p className={styles.copyrighting}>
+                    @Copyrighting Golden Slots 2016-2023
+                  </p>
                 </ul>
               </div>
             </div>
             <Link href="/">
-              <Image src={logo} alt="logo" />
+              <Image src={logo} alt="logo" className={styles.header__logo} />
             </Link>
             <div className={styles.nav__links}>
               <Link href="/" className={styles.header__link}>

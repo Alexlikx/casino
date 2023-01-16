@@ -169,3 +169,13 @@
     opacity: 0.6;
     margin-top: 40px;
 }
+
+@media (max-width:1170px) {
+    .header {
+        padding: 10px 0px;
+    }
+    .header__logo {
+        width: 100px;
+        height: 45px;
+    }
+}

@@ -26,15 +26,20 @@ const Hero = () => {
   return (
     <Swiper
       modules={[Navigation]}
-      // install Swiper modules
       spaceBetween={0}
       scrollbar={{ draggable: true }}
-      Autoplay
-      onInit={(swiper) => {
+      autoplay={{
+        delay: 500,
+        disableOnInteraction: false,
+      }}
+      threshold={true}
+      navigation={{
+        prevEl: prevRef.current,
+        nextEl: nextRef.current,
+      }}
+      onBeforeInit={(swiper) => {
         swiper.params.navigation.prevEl = prevRef.current;
         swiper.params.navigation.nextEl = nextRef.current;
-        swiper.navigation.init();
-        swiper.navigation.update();
       }}
       loop={true}
     >
