@@ -100,7 +100,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 20px 20px;
-  background-color: #242535;
+  background: linear-gradient(180deg, #242535 0%, #0C0D12 100%);
   list-style: none;
   -webkit-box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
           box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
