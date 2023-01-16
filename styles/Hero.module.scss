@@ -91,15 +91,18 @@
 }
 
 @media (max-width:768px) {
+    .header {
+        padding: 5px;
+    }
     .slider__btn {
         right: 25%;
     }
     .slide {
-        max-height: 60vh;
+        max-height: 40vh;
     }
 
     .swiper-slide {
-        max-height: 60vh;
+        max-height: 40vh;
     }
 }
 
