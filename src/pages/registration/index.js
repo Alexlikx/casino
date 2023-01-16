@@ -20,7 +20,7 @@ const Registration = () => {
         const phoneNumber = data.Tel;
         const currency = data.Currency;
 
-        const post = await fetch(`http://localhost:3000/api/user/registration`, {
+        const post = await fetch(`https://casino-navy.vercel.app/api/user/registration`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
