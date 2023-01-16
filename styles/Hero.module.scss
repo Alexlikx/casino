@@ -53,6 +53,14 @@
     left: 15%;
 }
 
+.slider__title__past {
+    position: absolute;
+    z-index: 1;
+    font-family: 'Roboto', sans-serif;
+    top: 20%;
+    left: 15%;
+}
+
 .slider__btn {
     width: 45px;
     height: 45px;
@@ -118,21 +126,6 @@
     margin-top: 15px;
     margin-bottom: 5px;
 }
-@media (max-width:568px) {
-    .slider__title {
-        left: 10%;
-        top: 10%;
-    }
-    .slider__btn {
-        right: 27%;
-    }
-    .slider__h2 {
-        font-size: 40px;
-    }
-    .slider__h3 {
-        font-size: 20px;
-    }
-}
 
 .registration__btn {
     font-weight: 700;
@@ -147,9 +140,29 @@
     box-shadow: 0px 0px 30px #FFC400;
     margin-top: 40px;
     border: 2px solid #000;
-
+    
     &:hover {
         background-color: rgb(255, 232, 99);
         color: #000;
+    }
+}
+@media (max-width:568px) {
+    .slider__title {
+        left: 10%;
+        top: 50%;
+    }
+    .slider__btn {
+        right: 27%;
+    }
+    .slider__h2 {
+        font-size: 40px;
+        display: none;
+    }
+    .slider__h3 {
+        font-size: 20px;
+        margin-top: 5px;
+    }
+    .registration__btn {
+        margin-top: 15px;
     }
 }

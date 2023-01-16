@@ -65,6 +65,7 @@ const Hero = () => {
         <div className={styles.slider__title}>
           <h2 className={styles.slider__h2}>Кешбэк до 10%</h2>
           <h3 className={styles.slider__h3}>Каждый понедельник</h3>
+          <h3 className={styles.slider__h3}>Доступны новые акции</h3>
           <Link href="/registration" className={styles.registration__btn}>
             РЕГИСТРАЦИЯ
           </Link>
@@ -75,7 +76,7 @@ const Hero = () => {
       <SwiperSlide className={styles.slide}>
         <div className={styles.slider__title}>
           <h2 className={styles.slider__h2}>Бонус Четверга</h2>
-          <h3 className={styles.slider__h3}>FS-20,80,200 VIP</h3>
+          <h3 className={styles.slider__h3}>Бонусы 20,40,60% VIP</h3>
           <h3 className={styles.slider__h3}>От 4-го депозита</h3>
           <Link href="/registration" className={styles.registration__btn}>
             РЕГИСТРАЦИЯ
@@ -86,14 +87,15 @@ const Hero = () => {
       </SwiperSlide>
       <SwiperSlide className={styles.slide}>
         <div className={styles.slider__title}>
-          <h2 className={styles.slider__h2}>Уникальный Пре-Релиз</h2>
-          <h3 className={styles.slider__h3}>Game of Gladiators</h3>
+          <h2 className={styles.slider__h2}>Game of Gladiators</h2>
+          <h3 className={styles.slider__h3}>Бонусы 20,40,200FS</h3>
+          <h3 className={styles.slider__h3}>При первом пополнении</h3>
           <Link href="/registration" className={styles.registration__btn}>
             РЕГИСТРАЦИЯ
           </Link>
         </div>
         <Image src={slide4Part1} alt="" className={styles.firstImage} />
-        <Image src={slide4Part2} alt="" className={styles.secondImage__past} />
+        <Image src={slide4Part2} alt="" className={styles.secondImage} />
       </SwiperSlide>
     </Swiper>
   );
