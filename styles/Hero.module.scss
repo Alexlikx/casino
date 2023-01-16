@@ -24,7 +24,7 @@
     .secondImage {
         max-width: 100%;
         height: auto;
-        top: 50px;
+        top: 25px;
     }
 
     .secondImage__past {
@@ -95,11 +95,11 @@
         right: 25%;
     }
     .slide {
-        height: 90vh;
+        max-height: 60vh;
     }
 
     .swiper-slide {
-        height: 90vh;
+        max-height: 60vh;
     }
 }
 
@@ -117,7 +117,7 @@
 @media (max-width:568px) {
     .slider__title {
         left: 10%;
-        top: 40%;
+        top: 20%;
     }
     .slider__btn {
         right: 27%;
