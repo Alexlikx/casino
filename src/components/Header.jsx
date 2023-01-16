@@ -100,6 +100,7 @@ const Header = () => {
                       Личный кабинет
                     </Link>
                   </li>
+                  <p className={styles.copyrighting}>@Copyrighting Golden Slots 2016-2023</p>
                 </ul>
               </div>
             </div>

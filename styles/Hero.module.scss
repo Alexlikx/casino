@@ -4,19 +4,148 @@
     position: relative;
 }
 
+.swiper-slide {
+    height: 400px;
+}
+
 .secondImage {
     position: absolute;
     right: 0;
     bottom: 0;
 }
 
+.secondImage__past {
+    position: absolute;
+        right: 0;
+        bottom: 0;
+}
+
 @media (max-width:1170px) {
     .secondImage {
         max-width: 100%;
         height: auto;
+        top: 50px;
     }
+
+    .secondImage__past {
+        max-width: 100vw;
+        height: auto;
+    }
+    .slide {
+        height: 500px;
+    }
+
+    .swiper-slide {
+        height: 500px;
+    }
+
 }
 .firstImage {
     width: 1920px;
     height: 100%;
+}
+
+.slider__title {
+    position: absolute;
+    z-index: 1;
+    font-family: 'Roboto', sans-serif;
+    top: 20%;
+    left: 15%;
+}
+
+.slider__btn {
+    width: 45px;
+    height: 45px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    top: 80%;
+    right: 15%;
+    z-index: 10;
+}
+
+.slider__btn_next {
+    width: 45px;
+    height: 45px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    top: 80%;
+    right: 10%;
+    z-index: 10;
+    rotate: 180deg;
+}
+
+@media (max-width:1170px) {
+    .slider__btn {
+            right: 20%;
+        }
+}
+
+@media (max-width:768px) {
+    .slider__btn {
+        right: 25%;
+    }
+    .slide {
+        height: 600px;
+    }
+
+    .swiper-slide {
+        height: 600px;
+    }
+}
+
+
+.slider__h2 {
+    font-size: 50.8px;
+}
+.slider__h3 {
+    margin-top: 10px;
+    font-size: 25px;
+    font-weight: 500;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+@media (max-width:568px) {
+    .slider__title {
+        left: 10%;
+        top: 30%;
+    }
+    .slider__btn {
+        right: 27%;
+    }
+    .slider__h2 {
+        font-size: 40px;
+    }
+    .slider__h3 {
+        font-size: 20px;
+    }
+}
+
+.registration__btn {
+    font-weight: 700;
+    font-size: 14px;
+    background-color: #FFC400;
+    line-height: 21px;
+    color: #000;
+    padding: 12px 30px;
+    border-radius: 8px;
+    transition: background .2s ease-in-out, color .2s ease-in-out;
+    display: inline-block;
+    box-shadow: 0px 0px 30px #FFC400;
+    margin-top: 40px;
+    border: 2px solid #000;
+
+    &:hover {
+        background-color: rgb(255, 232, 99);
+        color: #000;
+    }
 }
