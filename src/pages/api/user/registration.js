@@ -21,6 +21,9 @@ export default async function UserRegistation(req, res) {
             return res.json({ user });
         } catch (e) {
             console.log(e);
+            return
         }
+    } else {
+        return res.status(403).json({ message: "not" })
     }
 }
