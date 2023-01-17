@@ -26,7 +26,7 @@ const Registration = () => {
         const phoneNumber = data.Tel;
         const currency = data.Currency;
 
-        const post = await fetch(`https://casino-navy.vercel.app/api/user/registration`, {
+        const post = await fetch(`/api/user/registration`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -34,7 +34,7 @@ const Registration = () => {
             body: JSON.stringify({ email: email, password: password, phoneNumber: phoneNumber, currency: currency })
         })
         if (post.status === 200) {
-            router.push('https://casino-navy.vercel.app/login')
+            router.push('/login')
         } else if (post.status === 400) {
             let message = await post.json()
             if (message.tel) {
