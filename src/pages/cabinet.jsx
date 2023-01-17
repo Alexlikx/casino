@@ -7,20 +7,19 @@ const Cabinet = () => {
   const session = useSession();
   const router = useRouter();
   if (session.status === "unauthenticated") {
-    return router.replace("/login");
+    return router.push("/");
   }
-  const href = "/login";
-  const style = {
-    marginRight: 10,
-    color: router.asPath === href ? "red" : "black",
+  const signout = () => {
+    signOut();
+    router.push("/");
   };
   return (
     session.status !== "loading" && (
       <>
         <Header />
         <div style={{ paddingTop: "200px" }}>
-          <div>{session.data.user.email}</div>
-          <div onClick={() => signOut()}>Log Out</div>
+          <div>Your email{session.data.user.email}</div>
+          <div onClick={() => signout()}>Log Out</div>
         </div>
       </>
     )
