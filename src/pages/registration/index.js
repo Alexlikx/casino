@@ -3,7 +3,10 @@ import Header from '../../components/Header';
 import styles from '../../../styles/Registration.module.scss'
 import { useForm } from 'react-hook-form';
 import error from '../../../public/error.svg'
+import tip from '../../../public/check.svg'
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const Registration = () => {
 
@@ -11,8 +14,11 @@ const Registration = () => {
         register,
         handleSubmit,
         watch,
+        setError,
         formState: { errors },
     } = useForm();
+
+    const router = useRouter();
 
     const onSubmit = async (data) => {
         const email = data.Email;
@@ -27,10 +33,17 @@ const Registration = () => {
             },
             body: JSON.stringify({ email: email, password: password, phoneNumber: phoneNumber, currency: currency })
         })
-        console.log(post);
+        if (post.status === 200) {
+            router.push('/login')
+        } else if (post.status === 400) {
+            let message = await post.json()
+            if (message.tel) {
+                setError("Tel", { type: "string", message: message.tel });
+            } else if (message.email) {
+                setError("Email", { type: "string", message: message.email });
+            }
+        }
     };
-
-
     return (
         <>
             <Header />
@@ -111,9 +124,31 @@ const Registration = () => {
                             </select>
                         </div>
                     </div>
-                    <button className={styles.registration__btn}>Submit</button>
+                    <div className={styles.registration__checkbox}>
+                        <label className="form-control">
+                            <input {...{
+                                checked: true / false,
+                            }} type='checkbox'
+                                id="field-sun" className={styles.registration__checkbox_checkbox} name="checkbox" />
+                            <Image src={tip} alt='' className='checkbox__img' />
+                        </label>
+                        <span className={styles.registration__checkbox_title}>Я согласен с <Link href="/rules" className={styles.registration__checkbox_link}>
+                            Условиями и приложениями
+                        </Link> и я подтверждаю, что мне есть 18 лет</span>
+                    </div>
+                    {errors.Checkbox ? (
+                        <div className={styles.registration__error_block}>
+                            <Image src={error} alt="error" />
+                            {errors?.Checkbox && (
+                                <p>Вы должны согласиться с условиями, а также подтверждаете, что вам исполнилось 18 лет</p>
+                            )}
+                        </div>
+                    ) : (
+                        ""
+                    )}
+                    <button className={styles.registration__btn}>Зарегистрироваться</button>
                 </form>
-            </div>
+            </div >
         </>
     );
 }

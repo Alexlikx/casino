@@ -150,3 +150,39 @@ body {
   left: 10%;
   position: absolute;
 }
+
+input[type="checkbox"] {
+  appearance: none;
+  background: linear-gradient(90deg, #F12711 0%, #F5AF19 100%);
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 30px;
+  height: 30px;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+}
+
+.form-control {
+  margin-top: 1em;
+  position: relative;
+}
+
+.checkbox__img {
+  position: absolute;
+  z-index: 3;
+  top: 10px;
+  left: 9px;
+}
+
+input[type="checkbox"] {
+  /* ...existing styles */
+  display: grid;
+  place-content: center;
+  position: relative;
+}
+
+input[type="checkbox"]:checked ~ .checkbox__img{
+  opacity: 1;
+}
