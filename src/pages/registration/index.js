@@ -34,7 +34,7 @@ const Registration = () => {
             body: JSON.stringify({ email: email, password: password, phoneNumber: phoneNumber, currency: currency })
         })
         if (post.status === 200) {
-            router.push('/login')
+            router.push('https://casino-navy.vercel.app/login')
         } else if (post.status === 400) {
             let message = await post.json()
             if (message.tel) {
