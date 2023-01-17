@@ -3,10 +3,10 @@ import Header from '../../components/Header';
 import styles from '../../../styles/Registration.module.scss'
 import { useForm } from 'react-hook-form';
 import error from '../../../public/error.svg'
-import tip from '../../../public/check.svg'
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import tip from '../../../public/check.svg'
 
 const Registration = () => {
 
@@ -26,7 +26,7 @@ const Registration = () => {
         const phoneNumber = data.Tel;
         const currency = data.Currency;
 
-        const post = await fetch(`https://casino-navy.vercel.app/api/user/registration`, {
+        const post = await fetch(`http://localhost:3000/api/user/registration`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
