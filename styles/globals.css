@@ -190,11 +190,126 @@ input[type="checkbox"]:checked ~ .checkbox__img{
 }
 
 .wrapper-content {
-  padding-top: 110px;
+  padding-top: 90px;
 }
 
 @media (max-width:1170px) {
   .wrapper-content {
-  padding-top: 90px;
+  padding-top: 80px;
+  
 }
 }
+
+/* 
+
+
+
+
+
+
+*/
+#menu__toggle_profile:checked ~ .menu__btn_profile > span {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+#menu__toggle_profile:checked ~ .menu__btn_profile > span::before {
+  top: 0;
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+}
+
+#menu__toggle_profile:checked ~ .menu__btn_profile > span::after {
+  top: 0;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+#menu__toggle_profile:checked ~ .menu__box_profile {
+  visibility: visible;
+  right: 0;
+}
+
+.menu__btn_profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.menu__btn_profile > span,
+.menu__btn_profile > span::before,
+.menu__btn_profile > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(180deg, #242535 0%, #0C0D12 100%);
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+}
+
+.menu__btn_profile > span::before {
+  content: "";
+  top: -8px;
+}
+
+.menu__btn_profile > span::after {
+  content: "";
+  top: 8px;
+}
+
+.burger-link {
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+.menu__box_profile {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  right: -100%;
+  width: 300px;
+  height: 100%;
+  margin: 0;
+  padding: 20px 15px;
+  list-style: none;
+  background: linear-gradient(180deg, #242535 0%, #0C0D12 100%);
+  -webkit-box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+}
+
+.menu__item_profile {
+  display: block;
+  padding: 12px 24px;
+  color: #ccc;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+}
+
+.menu__item_profile:hover {
+  background-color: #333;
+}
+.hamburger-menu_profile {
+    display: none;
+    @media (max-width:576px) {
+        display: block;
+    }
+}
+

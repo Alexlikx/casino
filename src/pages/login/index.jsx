@@ -9,7 +9,7 @@ export default function Component({ csrfToken }) {
   const redirect = useRouter();
   const { data: session } = useSession();
   if (session) {
-    redirect.push("/cabinet");
+    redirect.push("/");
   }
 
   return (
