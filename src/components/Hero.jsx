@@ -42,7 +42,6 @@ const Hero = () => {
         swiper.params.navigation.nextEl = nextRef.current;
       }}
       loop={true}
-      style={{ paddingTop: "78px" }}
     >
       <div ref={prevRef} className={styles.slider__btn}>
         <Image src={arrow} alt="" />

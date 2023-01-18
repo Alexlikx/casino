@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../public/logo.svg";
 import styles from "../../styles/Header.module.scss";
+import { useSession } from "next-auth/react";
 import cancelIcon from "../../public/cancel-icon.svg";
 import iconBurger1 from "../../public/icon-for-burger-1.svg";
 import purse from "../../public/purse.svg";
@@ -10,10 +11,35 @@ import chest from "../../public/chest.svg";
 import person from "../../public/person.svg";
 
 const Header = () => {
+  const [User, setUser] = useState({});
+
   function CloseMenu() {
     const elem = document.getElementById("menu__toggle");
     elem.checked = false;
   }
+
+  const { status, data: session } = useSession();
+
+  useEffect(() => {
+    if (status === "authenticated") {
+      const GetBalance = async () => {
+        const post = await fetch(`/api/user/get-balance`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: session.user.email,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            setUser(data);
+          });
+      };
+      GetBalance();
+    }
+  }, [session, status]);
 
   return (
     <header className={styles.header}>
@@ -90,16 +116,6 @@ const Header = () => {
                       Бонусы
                     </Link>
                   </li>
-                  <li className="menu__item">
-                    <Link
-                      href="/"
-                      className={`${styles.header__link__burger}`}
-                      onClick={CloseMenu}
-                    >
-                      <Image src={person} alt="" width={20} height={20} />
-                      Личный кабинет
-                    </Link>
-                  </li>
                   <p className={styles.copyrighting}>
                     @Copyrighting Golden Slots 2016-2023
                   </p>
@@ -119,18 +135,35 @@ const Header = () => {
               <Link href="/" className={styles.header__link}>
                 Бонусы
               </Link>
-              <Link href="/" className={styles.header__link}>
-                Личный кабинет
-              </Link>
             </div>
           </div>
           <div className={styles.right__section}>
-            <Link href="/login" className={styles.login__btn}>
-              ВХОД
-            </Link>
-            <Link href="/registration" className={styles.registration__btn}>
-              РЕГИСТРАЦИЯ
-            </Link>
+            {status === "authenticated" ? (
+              <div className={styles.header__user}>
+                <span className={styles.header__user_balance}>
+                  Баланс:{" "}
+                  <b>
+                    {User.balance / 100}
+                    {User.currency === "EUR"
+                      ? "€"
+                      : User.currency === "UAH"
+                      ? "₴"
+                      : User.currency === "RUB"
+                      ? "₽"
+                      : "$"}
+                  </b>
+                </span>
+              </div>
+            ) : (
+              <>
+                <Link href="/login" className={styles.login__btn}>
+                  ВХОД
+                </Link>
+                <Link href="/registration" className={styles.registration__btn}>
+                  РЕГИСТРАЦИЯ
+                </Link>
+              </>
+            )}
           </div>
         </nav>
       </div>

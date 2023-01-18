@@ -14,7 +14,7 @@ html {
 body {
   background-color: #171824;
   color: #fff;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .container {
@@ -185,4 +185,14 @@ input[type="checkbox"] {
 
 input[type="checkbox"]:checked ~ .checkbox__img{
   opacity: 1;
+}
+
+.wrapper-content {
+  padding-top: 110px;
+}
+
+@media (max-width:1170px) {
+  .wrapper-content {
+  padding-top: 90px;
+}
 }

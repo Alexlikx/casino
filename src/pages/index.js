@@ -12,7 +12,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <Hero />
+      <div className='wrapper-content'>
+        <Hero />
+      </div>
     </>
   )
 }

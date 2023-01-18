@@ -5,7 +5,7 @@ const userModel = new mongoose.Schema({
     password: { type: String, required: true },
     currency: { type: String, required: true },
     phoneNumber: { type: String, required: true },
-    userBalance: { type: Number },
+    userBalance: { type: Number, default: 0.00 },
     role: { type: String }
 })
 

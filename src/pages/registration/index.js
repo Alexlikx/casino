@@ -10,6 +10,8 @@ import tip from '../../../public/check.svg'
 
 const Registration = () => {
 
+    const [Tip, setTip] = useState(false);
+
     const {
         register,
         handleSubmit,
@@ -50,7 +52,7 @@ const Registration = () => {
             <div className={styles.form__wrapper}>
                 <form action="/send-data-here" method="post" className={styles.registration__form} onSubmit={handleSubmit(onSubmit)}>
                     <h1 className={styles.registration__title}>Регистрация</h1>
-                    <label for="email" className={styles.registration__label}>Эл. адрес *</label>
+                    <label htmlFor="email" className={styles.registration__label}>Эл. адрес *</label>
                     <input type="email" id="email" name="email" className={styles.registration__input} {...register("Email", {
                         required: "Это обязательное поле",
                         minLength: {
@@ -72,7 +74,7 @@ const Registration = () => {
                     ) : (
                         ""
                     )}
-                    <label for="tel" className={styles.registration__label}>Номер телефона *</label>
+                    <label htmlFor="tel" className={styles.registration__label}>Номер телефона *</label>
                     <input type="tel" id="tel" name="tel" className={styles.registration__input} {...register("Tel", {
                         required: "Это обязательное поле",
                         minLength: {
@@ -94,7 +96,7 @@ const Registration = () => {
                     ) : (
                         ""
                     )}
-                    <label for="password" className={styles.registration__label}>Пароль *</label>
+                    <label htmlFor="password" className={styles.registration__label}>Пароль *</label>
                     <input type="password" id="password" name="password" className={styles.registration__input} {...register("Password", {
                         required: "Это обязательное поле",
                         minLength: {
@@ -114,7 +116,7 @@ const Registration = () => {
                     )}
                     <div>
                         <div className={styles.registration__currency_block}>
-                            <label for="currency" className={styles.registration__label}>Валюта *</label>
+                            <label htmlFor="currency" className={styles.registration__label}>Валюта *</label>
                             <select id="currency" name="currency" className={styles.registration__input} {...register("Currency", {
                             })} defaultValue='EUR'>
                                 <option value="EUR">EUR</option>
@@ -127,10 +129,10 @@ const Registration = () => {
                     <div className={styles.registration__checkbox}>
                         <label className="form-control">
                             <input {...{
-                                checked: true / false,
+                                required: true
                             }} type='checkbox'
-                                id="field-sun" className={styles.registration__checkbox_checkbox} name="checkbox" />
-                            <Image src={tip} alt='' className='checkbox__img' />
+                                id="field-sun" className={styles.registration__checkbox_checkbox} name="checkbox" onChange={() => setTip(prev => !prev)} />
+                            {Tip && <Image src={tip} alt='' className='checkbox__img' />}
                         </label>
                         <span className={styles.registration__checkbox_title}>Я согласен с <Link href="/rules" className={styles.registration__checkbox_link}>
                             Условиями и приложениями

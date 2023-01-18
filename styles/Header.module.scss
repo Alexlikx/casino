@@ -183,3 +183,23 @@
         height: 45px;
     }
 }
+
+.header__user {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.header__user_balance {
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    &::after {
+        position: absolute;
+        content: '';
+        bottom: -7px;
+        left: 0;
+        background-color: #fff;
+        width: 100%;
+        height: 2px;
+    }
+}
