@@ -4,6 +4,7 @@ import ConnectDB from "../../../../utils/connectDB";
 export default async function UserRegistation(req, res) {
     if (req.method == 'POST') {
         try {
+            await ConnectDB();
             const { email, password, phoneNumber, currency } = req.body;
             if (!email || !password || !phoneNumber || !currency) {
                 return res.status(404).json({ message: "Bad request" })
@@ -16,7 +17,6 @@ export default async function UserRegistation(req, res) {
             if (telcandidate) {
                 return res.status(400).json({ tel: "Такой номер телефона уже был зарегистрирован" })
             }
-            await ConnectDB();
             const user = await UserModel.create({ email, password, phoneNumber, currency, role: 'USER', userBalance: 0 });
             return res.json({ user });
         } catch (e) {
