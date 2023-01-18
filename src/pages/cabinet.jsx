@@ -2,27 +2,38 @@ import React, { use } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 import Header from "../components/Header";
+import Link from "next/dist/client/link";
 
 const Cabinet = () => {
-  const session = useSession();
+  const { status, data: session } = useSession({
+    required: true,
+    onUnauthenticated() {
+      router.push("/");
+    },
+  });
   const router = useRouter();
-  if (session.status === "unauthenticated") {
-    return router.push("/");
-  }
   const signout = () => {
     signOut();
-    router.push("/");
   };
-  return (
-    session.status !== "loading" && (
+  if (status === "authenticated") {
+    return (
       <>
         <Header />
-        <div style={{ paddingTop: "200px" }}>
-          <div>Your email{session.data.user.email}</div>
-          <div onClick={() => signout()}>Log Out</div>
+        <div style={{ paddingTop: "100px" }}>
+          <p>Signed in as {session.user.email}</p>
+          <div onClick={() => signout()}>SignOut</div>
         </div>
       </>
-    )
+    );
+  }
+
+  return (
+    <>
+      <Header />
+      <div style={{ paddingTop: "100px" }}>
+        <Link href="/api/auth/signin">Sign in</Link>;
+      </div>
+    </>
   );
 };
 
