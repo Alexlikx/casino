@@ -10,6 +10,7 @@ import purse from "../../public/purse.svg";
 import chest from "../../public/chest.svg";
 import person from "../../public/person.svg";
 
+
 const Header = () => {
   const [User, setUser] = useState({});
 
@@ -136,6 +137,25 @@ const Header = () => {
                 Бонусы
               </Link>
             </div>
+            {status === "authenticated" ? (
+              <div className={styles.header__user}>
+                <Link className={styles.header__user_dep} href="/deposit">
+                  Депозит
+                </Link>
+                <Link href="/cabinet" className={styles.person__link}>
+                  <Image src={person} alt="" />
+                </Link>
+              </div>
+            ) : (
+              <div className={styles.nav__links}>
+                <Link href="/login" className={styles.login__btn}>
+                  ВХОД
+                </Link>
+                <Link href="/registration" className={styles.registration__btn}>
+                  РЕГИСТРАЦИЯ
+                </Link>
+              </div>
+            )}
           </div>
           <div className={styles.right__section}>
             {status === "authenticated" ? (

@@ -100,6 +100,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 20px 20px;
+  box-sizing: border-box;
   background: linear-gradient(180deg, #242535 0%, #0C0D12 100%);
   list-style: none;
   -webkit-box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
@@ -111,6 +112,7 @@ body {
 .menu__item {
   display: block;
   padding: 12px 24px 12px 0px;
+  box-sizing: border-box;
   font-family: "Roboto", sans-serif;
   font-size: 20px;
   font-weight: 600;
