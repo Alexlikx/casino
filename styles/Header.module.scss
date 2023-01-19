@@ -60,7 +60,7 @@
 
 .header__link {
     color: #fff;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 16px;
     line-height: 29px;
     padding: 10px 20px;
@@ -145,6 +145,8 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #fff;
     p {
         font-size: 14px;
         font-weight: 800;
@@ -263,4 +265,75 @@
     font-weight: 600;
     text-align: center;
     margin-top: 20px;
+}
+
+.person__menu__email {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    div {
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: #FFC400;
+        border: 2px solid rgb(255, 255, 255);
+    }
+}
+
+.burger__balance {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    &::after {
+        content: '';
+        display: block;
+        bottom: -4px;
+        height: 2px;
+        width: 100%;
+        position: absolute;
+        background-color: #fff;
+        left: 0;
+    }
+}
+
+.person__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile__depo {
+    padding: 12px 22px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    background-color: #FFC400;
+    font-weight: 600;
+    color: #000;
+}
+
+.profile__link_wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.profile__link_wrapper_without_top {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.profile__bonuses_link {
+    background-color: transparent;
+    padding: 12px 36px;
+    border-radius: 15px;
+    color: #fff;
+    font-weight: 600;
+    border: 2px solid #FFC400;
 }

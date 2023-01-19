@@ -7,6 +7,7 @@ import slide2Part2 from "../../public/slide2-2.png";
 import slide4Part2 from "../../public/slide4-2.png";
 import slide4Part1 from "../../public/slide4-1.jpg";
 import slide3Part1 from "../../public/slide3-1.jpg";
+import { useSession } from "next-auth/react";
 import slide3Part2 from "../../public/slide3-2.png";
 import arrow from "../../public/arrow.svg";
 
@@ -23,6 +24,8 @@ import Link from "next/link";
 const Hero = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const { status } = useSession();
+
   return (
     <Swiper
       modules={[Navigation]}
@@ -54,9 +57,15 @@ const Hero = () => {
           <h2 className={styles.slider__h2}>Welcome pack</h2>
           <h3 className={styles.slider__h3}>325%+150FS</h3>
           <h3 className={styles.slider__h3}>Cleopatra or Fruit Party</h3>
-          <Link href="/registration" className={styles.registration__btn}>
-            РЕГИСТРАЦИЯ
-          </Link>
+          {status == "unauthenticated" ? (
+            <Link href="/registration" className={styles.registration__btn}>
+              РЕГИСТРАЦИЯ
+            </Link>
+          ) : (
+            <Link href="/registration" className={styles.registration__btn}>
+              ПОПОЛНИТЬ
+            </Link>
+          )}
         </div>
         <Image src={slide1} alt="" className={styles.firstImage} />
         <Image src={slide1Part2} alt="" className={styles.secondImage} />
@@ -66,9 +75,15 @@ const Hero = () => {
           <h2 className={styles.slider__h2}>Кешбэк до 10%</h2>
           <h3 className={styles.slider__h3}>Каждый понедельник</h3>
           <h3 className={styles.slider__h3}>Доступны новые акции</h3>
-          <Link href="/registration" className={styles.registration__btn}>
-            РЕГИСТРАЦИЯ
-          </Link>
+          {status == "unauthenticated" ? (
+            <Link href="/registration" className={styles.registration__btn}>
+              РЕГИСТРАЦИЯ
+            </Link>
+          ) : (
+            <Link href="/registration" className={styles.registration__btn}>
+              ПОПОЛНИТЬ
+            </Link>
+          )}
         </div>
         <Image src={slide2Part1} alt="" className={styles.firstImage} />
         <Image src={slide2Part2} alt="" className={styles.secondImage} />
@@ -78,9 +93,15 @@ const Hero = () => {
           <h2 className={styles.slider__h2}>Бонус Четверга</h2>
           <h3 className={styles.slider__h3}>Бонусы 20,40,60% VIP</h3>
           <h3 className={styles.slider__h3}>От 4-го депозита</h3>
-          <Link href="/registration" className={styles.registration__btn}>
-            РЕГИСТРАЦИЯ
-          </Link>
+          {status == "unauthenticated" ? (
+            <Link href="/registration" className={styles.registration__btn}>
+              РЕГИСТРАЦИЯ
+            </Link>
+          ) : (
+            <Link href="/registration" className={styles.registration__btn}>
+              ПОПОЛНИТЬ
+            </Link>
+          )}
         </div>
         <Image src={slide3Part1} alt="" className={styles.firstImage} />
         <Image src={slide3Part2} alt="" className={styles.secondImage} />
@@ -90,9 +111,15 @@ const Hero = () => {
           <h2 className={styles.slider__h2}>Game of Gladiators</h2>
           <h3 className={styles.slider__h3}>Бонусы 20,40,200FS</h3>
           <h3 className={styles.slider__h3}>При первом пополнении</h3>
-          <Link href="/registration" className={styles.registration__btn}>
-            РЕГИСТРАЦИЯ
-          </Link>
+          {status == "unauthenticated" ? (
+            <Link href="/registration" className={styles.registration__btn}>
+              РЕГИСТРАЦИЯ
+            </Link>
+          ) : (
+            <Link href="/registration" className={styles.registration__btn}>
+              ПОПОЛНИТЬ
+            </Link>
+          )}
         </div>
         <Image src={slide4Part1} alt="" className={styles.firstImage} />
         <Image src={slide4Part2} alt="" className={styles.secondImage} />

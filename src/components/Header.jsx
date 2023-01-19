@@ -8,6 +8,7 @@ import cancelIcon from "../../public/cancel-icon.svg";
 import iconBurger1 from "../../public/icon-for-burger-1.svg";
 import purse from "../../public/purse.svg";
 import chest from "../../public/chest.svg";
+import exit from "../../public/exit.svg";
 import person from "../../public/person.svg";
 
 const Header = () => {
@@ -234,7 +235,7 @@ const Header = () => {
                         flexDirection: "column",
                         gap: "20px",
                         paddingBottom: "30px",
-                        paddingTop: "20px",
+                        paddingTop: "0px",
                       }}
                     >
                       {status === "unauthenticated" ? (
@@ -253,14 +254,23 @@ const Header = () => {
                         ""
                       )}
                     </div>
-                    <li>
-                      <p>
-                        Signed in as <b>{session.user.email}</b>
+                    <li className={styles.person__header}>
+                      <p className={styles.person__menu__email}>
+                        <div>
+                          <Image src={person} alt="" />
+                        </div>{" "}
+                        <b>{session.user.email}</b>
                       </p>
+                      <div
+                        onClick={() => signOut()}
+                        style={{ cursor: "pointer" }}
+                      >
+                        <Image src={exit} alt="Выйти" />
+                      </div>
                     </li>
-                    <li>
-                      <span>
-                        Баланс:{" "}
+                    <li className={styles.burger__balance}>
+                      <div>
+                        <span>Баланс: </span>
                         <b>
                           {User.balance / 100}
                           {User.currency === "EUR"
@@ -271,25 +281,23 @@ const Header = () => {
                             ? "₽"
                             : "$"}
                         </b>
-                      </span>
+                      </div>
                     </li>
-                    <li className="menu__item">
+                    <li className={styles.profile__link_wrapper}>
                       <Link
-                        href="/"
-                        className={`${styles.header__link__burger}`}
+                        href="/deposit"
+                        className={`${styles.profile__depo}`}
                         onClick={CloseMenuProfile}
                       >
-                        <Image src={purse} alt="" width={20} height={20} />
-                        Пополнение
+                        Пополнить
                       </Link>
                     </li>
-                    <li className="menu__item">
+                    <li className={styles.profile__link_wrapper_without_top}>
                       <Link
-                        href="/"
-                        className={`${styles.header__link__burger}`}
+                        href="/bonuses"
+                        className={`${styles.profile__bonuses_link}`}
                         onClick={CloseMenuProfile}
                       >
-                        <Image src={chest} alt="" width={20} height={20} />
                         Бонусы
                       </Link>
                     </li>
