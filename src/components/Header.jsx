@@ -296,18 +296,32 @@ const Header = () => {
                         Бонусы
                       </Link>
                     </li>
-                    <li className={styles.profile__link_wrapper_without_top}>
+                    <li
+                      className={styles.profile__link_wrapper_without_top}
+                      style={{
+                        zIndex: 4,
+                        position: "relative",
+                      }}
+                    >
                       <DropDown />
                     </li>
                     <li
                       className={styles.profile__link_wrapper_without_top}
-                      style={{ marginTop: "-10px" }}
+                      style={{
+                        marginTop: "-10px",
+                        zIndex: 2,
+                        position: "relative",
+                      }}
                     >
                       <DropDown2 />
                     </li>
                     <li
                       className={styles.profile__link_wrapper_without_top}
-                      style={{ marginTop: "-10px" }}
+                      style={{
+                        marginTop: "-10px",
+                        zIndex: 1,
+                        position: "relative",
+                      }}
                     >
                       <DropDown3 />
                     </li>
