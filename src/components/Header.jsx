@@ -89,33 +89,32 @@ const Header = () => {
                       src={logo}
                       alt="logo"
                       className={styles.burger__img}
+                      width={100}
                     />
                   </Link>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: "20px",
-                      paddingBottom: "30px",
-                      paddingTop: "20px",
-                    }}
-                  >
-                    {status === "unauthenticated" ? (
-                      <>
-                        <Link href="/login" className={styles.login__btn}>
-                          ВХОД
-                        </Link>
-                        <Link
-                          href="/registration"
-                          className={styles.registration__btn}
-                        >
-                          РЕГИСТРАЦИЯ
-                        </Link>
-                      </>
-                    ) : (
-                      ""
-                    )}
-                  </div>
+                  {status === "unauthenticated" ? (
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "20px",
+                        paddingBottom: "30px",
+                        paddingTop: "20px",
+                      }}
+                    >
+                      <Link href="/login" className={styles.login__btn}>
+                        ВХОД
+                      </Link>
+                      <Link
+                        href="/registration"
+                        className={styles.registration__btn}
+                      >
+                        РЕГИСТРАЦИЯ
+                      </Link>
+                    </div>
+                  ) : (
+                    ""
+                  )}
                   <li className="menu__item">
                     <Link
                       href="/"
