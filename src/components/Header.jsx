@@ -10,6 +10,9 @@ import purse from "../../public/purse.svg";
 import chest from "../../public/chest.svg";
 import exit from "../../public/exit.svg";
 import person from "../../public/person.svg";
+import DropDown from "./DropDown";
+import DropDown2 from "./DropDown2";
+import DropDown3 from "./DropDown3";
 
 const Header = () => {
   const [User, setUser] = useState({});
@@ -172,14 +175,6 @@ const Header = () => {
                 <div></div>
               </div>
             ) : (
-              // <div className={styles.nav__links}>
-              //   <Link href="/login" className={styles.login__btn}>
-              //     ВХОД
-              //   </Link>
-              //   <Link href="/registration" className={styles.registration__btn}>
-              //     РЕГИСТРАЦИЯ
-              //   </Link>
-              // </div>
               ""
             )}
           </div>
@@ -189,7 +184,7 @@ const Header = () => {
                 <span className={styles.header__user_balance}>
                   Баланс:{" "}
                   <b>
-                    {User.balance / 100}
+                    {parseInt(User.balance) / 100}
                     {User.currency === "EUR"
                       ? "€"
                       : User.currency === "UAH"
@@ -272,7 +267,7 @@ const Header = () => {
                       <div>
                         <span>Баланс: </span>
                         <b>
-                          {User.balance / 100}
+                          {Math.floor(User.balance) / 100}
                           {User.currency === "EUR"
                             ? "€"
                             : User.currency === "UAH"
@@ -300,6 +295,21 @@ const Header = () => {
                       >
                         Бонусы
                       </Link>
+                    </li>
+                    <li className={styles.profile__link_wrapper_without_top}>
+                      <DropDown />
+                    </li>
+                    <li
+                      className={styles.profile__link_wrapper_without_top}
+                      style={{ marginTop: "-10px" }}
+                    >
+                      <DropDown2 />
+                    </li>
+                    <li
+                      className={styles.profile__link_wrapper_without_top}
+                      style={{ marginTop: "-10px" }}
+                    >
+                      <DropDown3 />
                     </li>
                     <li>
                       <div

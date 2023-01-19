@@ -62,7 +62,7 @@ const Hero = () => {
               РЕГИСТРАЦИЯ
             </Link>
           ) : (
-            <Link href="/registration" className={styles.registration__btn}>
+            <Link href="/deposit" className={styles.registration__btn}>
               ПОПОЛНИТЬ
             </Link>
           )}
@@ -80,7 +80,7 @@ const Hero = () => {
               РЕГИСТРАЦИЯ
             </Link>
           ) : (
-            <Link href="/registration" className={styles.registration__btn}>
+            <Link href="/deposit" className={styles.registration__btn}>
               ПОПОЛНИТЬ
             </Link>
           )}
@@ -98,7 +98,7 @@ const Hero = () => {
               РЕГИСТРАЦИЯ
             </Link>
           ) : (
-            <Link href="/registration" className={styles.registration__btn}>
+            <Link href="/deposit" className={styles.registration__btn}>
               ПОПОЛНИТЬ
             </Link>
           )}
@@ -116,7 +116,7 @@ const Hero = () => {
               РЕГИСТРАЦИЯ
             </Link>
           ) : (
-            <Link href="/registration" className={styles.registration__btn}>
+            <Link href="/deposit" className={styles.registration__btn}>
               ПОПОЛНИТЬ
             </Link>
           )}
