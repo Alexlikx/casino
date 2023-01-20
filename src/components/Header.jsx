@@ -84,7 +84,10 @@ const Header = () => {
                       <Image src={cancelIcon} alt="logo" onClick={CloseMenu} />
                     </p>
                   </div>
-                  <Link href="/">
+                  <Link
+                    href="/"
+                    style={{ display: "flex", justifyContent: "center" }}
+                  >
                     <Image
                       src={logo}
                       alt="logo"
@@ -117,7 +120,7 @@ const Header = () => {
                   )}
                   <li className="menu__item">
                     <Link
-                      href="/"
+                      href="/#slots"
                       className={`${styles.header__link__burger}`}
                       onClick={CloseMenu}
                     >
@@ -127,7 +130,7 @@ const Header = () => {
                   </li>
                   <li className="menu__item">
                     <Link
-                      href="/"
+                      href="/deposit"
                       className={`${styles.header__link__burger}`}
                       onClick={CloseMenu}
                     >
@@ -137,7 +140,7 @@ const Header = () => {
                   </li>
                   <li className="menu__item">
                     <Link
-                      href="/"
+                      href="/bonuses"
                       className={`${styles.header__link__burger}`}
                       onClick={CloseMenu}
                     >
@@ -155,13 +158,13 @@ const Header = () => {
               <Image src={logo} alt="logo" className={styles.header__logo} />
             </Link>
             <div className={styles.nav__links}>
-              <Link href="/" className={styles.header__link}>
+              <Link href="/#slots" className={styles.header__link}>
                 Слоты
               </Link>
-              <Link href="/" className={styles.header__link}>
-                Пополненить
+              <Link href="/deposit" className={styles.header__link}>
+                Пополнить
               </Link>
-              <Link href="/" className={styles.header__link}>
+              <Link href="/bonuses" className={styles.header__link}>
                 Бонусы
               </Link>
             </div>

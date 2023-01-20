@@ -11,7 +11,16 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
-      </body>
+        <script
+            async
+            src="https://pay.google.com/gp/p/js/pay.js"
+            onLoad="onGooglePayLoaded()"
+
+        >
+      </script>
+
+
+    </body>
     </Html>
   )
 }
