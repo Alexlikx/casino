@@ -4,6 +4,7 @@ import Header from "../../components/Header";
 import { useRouter } from "next/router";
 import styles from "../../../styles/Login.module.scss";
 import { getCsrfToken } from "next-auth/react";
+import Link from "next/link";
 
 export default function Component({ csrfToken }) {
   const redirect = useRouter();
@@ -45,6 +46,27 @@ export default function Component({ csrfToken }) {
           <button className={styles.registration__btn} type="submit">
             Войти
           </button>
+          <div
+            style={{
+              margin: "20px auto",
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "column",
+              textAlign: "center",
+            }}
+          >
+            <span>Нету аккаунта?</span>
+            <Link
+              href="/registration"
+              style={{
+                marginTop: "15px",
+                textDecoration: "underline",
+                color: "#FFC400",
+              }}
+            >
+              Зарегестрироваться
+            </Link>
+          </div>
         </form>
       </div>
     </>

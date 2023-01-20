@@ -149,6 +149,27 @@ const Registration = () => {
                         ""
                     )}
                     <button className={styles.registration__btn}>Зарегистрироваться</button>
+                    <div
+                        style={{
+                            margin: "10px auto",
+                            display: "flex",
+                            justifyContent: "center",
+                            flexDirection: "column",
+                            textAlign: "center",
+                        }}
+                    >
+                        <span>Есть аккаунт?</span>
+                        <Link
+                            href="/login"
+                            style={{
+                                marginTop: "15px",
+                                textDecoration: "underline",
+                                color: "#FFC400",
+                            }}
+                        >
+                            Войти
+                        </Link>
+                    </div>
                 </form>
             </div >
         </>
