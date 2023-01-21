@@ -3,6 +3,8 @@ import Header from "../components/Header";
 import GooglePayButton from "@google-pay/button-react";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
+// import ConnectDB from "../../utils/connectDB";
+// import UserModel from "../../models/UserModel";
 import styles from "../../styles/Deposit.module.scss";
 
 const Deposit = () => {
@@ -109,7 +111,18 @@ const Deposit = () => {
                 countryCode: "UA",
               },
             }}
-            onLoadPaymentData={(paymentRequest) => {
+            onLoadPaymentData={async (paymentRequest) => {
+              const post = await fetch(`/api/user/update-balance`, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  email: session.user.email,
+                  addAmount: amount,
+                }),
+              });
+
               router.push(
                 `/success?amount=${amount}&currency=${User.currency}`
               );
