@@ -7,7 +7,6 @@ import Link from "next/link";
 
 const Amount = () => {
   const params = useRouter();
-  console.log(params.query);
 
   function CloseMenu() {
     const elem = document.getElementById("menu__toggle");

@@ -78,58 +78,7 @@ const Deposit = () => {
             id="deposit"
             required
           />
-          <GooglePayButton
-            environment="TEST"
-            paymentRequest={{
-              apiVersion: 2,
-              apiVersionMinor: 0,
-              allowedPaymentMethods: [
-                {
-                  type: "CARD",
-                  parameters: {
-                    allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
-                    allowedCardNetworks: ["MASTERCARD", "VISA"],
-                  },
-                  tokenizationSpecification: {
-                    type: "PAYMENT_GATEWAY",
-                    parameters: {
-                      gateway: "example",
-                      gatewayMerchantId: "exampleGatewayMerchantId",
-                    },
-                  },
-                },
-              ],
-              merchantInfo: {
-                merchantId: "12345678901234567890",
-                merchantName: "Golden Slots",
-              },
-              transactionInfo: {
-                totalPriceStatus: "ESTIMATED",
-                totalPriceLabel: "Total",
-                totalPrice: "100",
-                currencyCode: "UAH",
-                countryCode: "UA",
-              },
-            }}
-            onLoadPaymentData={async (paymentRequest) => {
-              const post = await fetch(`/api/user/update-balance`, {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  email: session.user.email,
-                  addAmount: amount,
-                }),
-              });
-
-              router.push(
-                `/success?amount=${amount}&currency=${User.currency}`
-              );
-            }}
-            style={{ margin: "0 auto" }}
-            buttonType="short"
-          />
+          
         </div>
       </div>
     </>

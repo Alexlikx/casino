@@ -25,7 +25,9 @@ const DropDown = () => {
         </button>
         <div
           id="myDropdown"
-          className={`${styles.dropdown_content} ${isActive ? styles.show : ""}`}
+          className={`${styles.dropdown_content} ${
+            isActive ? styles.show : ""
+          }`}
         >
           <Link href="/bonuses">Мои бонусы</Link>
           <Link href="/bonuseshistory">Бонусная история</Link>
