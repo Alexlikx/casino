@@ -5,7 +5,7 @@ export default async function UserRegistation(req, res) {
     if (req.method == 'POST') {
         try {
             await ConnectDB();
-            const { txID, timestamp, direction, type, src, dst, amount, secret_key } = req.body;
+            const { txID, timestamp, direction, type, src, dst, amount, secret_key, email } = req.body;
             const secretKey = 'Jjspl86av42nk'
 
             if (secretKey !== secret_key) {
@@ -16,7 +16,12 @@ export default async function UserRegistation(req, res) {
                 return res.status(400).json({ message: 'Bad request' })
             }
 
-            const payment = await Global24Payments.create({ txID, timestamp, direction, type, src, dst, amount, secret_key })
+            if (!email) {
+                const payment = await Global24Payments.create({ txID, timestamp, direction, type, src, dst, amount, secret_key })
+            }
+            else {
+                const payment = await Global24Payments.create({ txID, timestamp, direction, type, src, dst, amount, secret_key, email })
+            }
 
             return res.json({ payment });
         } catch (e) {

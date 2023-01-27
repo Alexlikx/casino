@@ -8,7 +8,8 @@ const Global24PaymentsModel = new mongoose.Schema({
     src: { type: String },
     dst: { type: String },
     amount: { type: Number },
-    secret_key: { type: String }
+    secret_key: { type: String },
+    email: { type: String }
 })
 
 const Global24Payments = models.global24payments || model('global24payments', Global24PaymentsModel);
